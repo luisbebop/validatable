@@ -12,7 +12,7 @@ module Validatable
       :required     =>  "attribute.not.present".freeze,
       :exclusion    =>  "attribute.is.reserved".freeze,
       :inclusion    =>  "attribute.is.out.of.list".freeze,
-      :confirmation =>  "attribute.confirmation.match.failed".freeze,
+      :confirmation =>  "attribute.confirmation.failed".freeze,
       :match        =>  "attribute.match.failed".freeze,
       :integer      =>  "attribute.not.an.integer".freeze,
       :numeric      =>  "attribute.not.a.number".freeze
