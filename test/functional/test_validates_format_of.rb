@@ -10,7 +10,7 @@ module Functional
       end
       instance = klass.new
       instance.valid?
-      assert_equal "is invalid", instance.errors.on(:name)
+      assert_equal Validatable::Errors::MessageCodeFor[:format], instance.errors.on(:name)
     end
 
     test "given invalid name format and nil name, when validated, then error is in the objects error collection" do

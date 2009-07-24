@@ -1,5 +1,7 @@
-require 'test/unit'
 require 'rubygems'
+gem 'test-unit'
+
+require 'test/unit'
 require 'mocha'
 require 'dust'
 require 'set'

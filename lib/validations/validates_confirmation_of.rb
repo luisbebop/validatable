@@ -17,7 +17,7 @@ module Validatable
     end
     
     def message(instance)
-      super || "doesn't match confirmation"
+      super || Validatable::Errors::MessageCodeFor[:confirmation]
     end
   end
 end

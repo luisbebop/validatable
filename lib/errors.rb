@@ -1,5 +1,22 @@
 module Validatable
+  
   class Errors
+    
+    MessageCodeFor = { 
+      :unique       =>  "attribute.duplicate.entry".freeze, 
+      :format       =>  "attribute.format.invalid".freeze,
+      :length       =>  "attribute.length.invalid".freeze,
+      :valid        =>  "attribute.document.invalid".freeze,
+      :logic        =>  "attribute.logic.false".freeze,
+      :accept       =>  "attribute.not.accepted".freeze,
+      :required     =>  "attribute.not.present".freeze,
+      :exclusion    =>  "attribute.is.reserved".freeze,
+      :inclusion    =>  "attribute.is.out.of.list".freeze,
+      :confirmation =>  "attribute.match.failed".freeze,
+      :integer      =>  "attribute.not.an.integer".freeze,
+      :numeric      =>  "attribute.not.a.number".freeze
+    }
+    
     extend Forwardable
     include Enumerable
 

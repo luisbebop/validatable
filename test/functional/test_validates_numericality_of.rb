@@ -10,7 +10,7 @@ module Functional
       end
       instance = klass.new
       instance.valid?
-      assert_equal "must be a number", instance.errors.on(:nothing)
+      assert_equal Validatable::Errors::MessageCodeFor[:numeric], instance.errors.on(:nothing)
     end
 
     test "when validating numericality and the value has a non numeric character an error should exist on the instance" do
@@ -24,7 +24,7 @@ module Functional
       end
       instance = klass.new
       instance.valid?
-      assert_equal "must be a number", instance.errors.on(:some_string)
+      assert_equal Validatable::Errors::MessageCodeFor[:numeric], instance.errors.on(:some_string)
     end
     
     test "when validating a number no error will be in the instance" do
@@ -51,7 +51,7 @@ module Functional
       instance = klass.new
       instance.valid_number = 1.23
       instance.valid?
-      assert_equal "must be a number", instance.errors.on(:valid_number)
+      assert_equal Validatable::Errors::MessageCodeFor[:numeric], instance.errors.on(:valid_number)
     end
   end
 end

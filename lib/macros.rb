@@ -1,4 +1,5 @@
 module Validatable
+
   module Macros
     # call-seq: validates_each(*args)
     # 

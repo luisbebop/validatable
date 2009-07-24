@@ -3,7 +3,7 @@ module Validatable
     option :minimum, :maximum, :is, :within
     
     def message(instance)
-      super || "is invalid"
+      super || Validatable::Errors::MessageCodeFor[:length]
     end
     
     def valid?(instance)

@@ -10,7 +10,7 @@ module Functional
       end
       instance = klass.new
       instance.valid?
-      assert_equal "is invalid", instance.errors.on(:name)
+      assert_equal Validatable::Errors::MessageCodeFor[:length], instance.errors.on(:name)
     end
     
     test "given is constraint, when validated, then error is in the objects error collection" do
@@ -22,7 +22,7 @@ module Functional
 
       instance = klass.new
       instance.valid?
-      assert_equal "is invalid", instance.errors.on(:name)
+      assert_equal Validatable::Errors::MessageCodeFor[:length], instance.errors.on(:name)
     end
 
     test "given is constraint is met, when validated, then valid is true" do
@@ -46,7 +46,7 @@ module Functional
 
       instance = klass.new
       instance.valid?
-      assert_equal "is invalid", instance.errors.on(:name)
+      assert_equal Validatable::Errors::MessageCodeFor[:length], instance.errors.on(:name)
     end
 
     test "given within constraint, when validated, then valid is true" do

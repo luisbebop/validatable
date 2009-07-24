@@ -13,7 +13,7 @@ module Validatable
     end
     
     def message(instance)
-      super || "must be a number"
+      super || Validatable::Errors::MessageCodeFor[:numeric]
     end
     
     private

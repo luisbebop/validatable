@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
 functional_tests do
 
-  expect "can't be empty" do
+  expect Validatable::Errors::MessageCodeFor[:required] do
     child_class = Module.new do
       include Validatable
       validates_presence_of :name
@@ -20,7 +20,7 @@ functional_tests do
     instance.errors.on(:name)
   end
   
-  expect "can't be empty" do
+  expect Validatable::Errors::MessageCodeFor[:required] do
     child_class = Module.new do
       include Validatable
       validates_presence_of :name
@@ -120,7 +120,7 @@ functional_tests do
     end
   end
 
-  expect "is invalid" do
+  expect Validatable::Errors::MessageCodeFor[:format] do
     child_class = Class.new do
       include Validatable
       attr_accessor :name, :address
@@ -139,7 +139,7 @@ functional_tests do
     instance.errors.on(:address)
   end
 
-  expect "can't be empty" do
+  expect Validatable::Errors::MessageCodeFor[:required] do
     child_class = Class.new do
       include Validatable
       attr_accessor :name, :address
@@ -178,7 +178,7 @@ functional_tests do
     end
     instance = klass.new
     instance.valid?
-    assert_equal "can't be empty", instance.errors.on(:name)
+    assert_equal Validatable::Errors::MessageCodeFor[:required], instance.errors.on(:name)
   end
 
   test "when child validations have errors, level 1 parent validations are still performed" do
@@ -199,11 +199,11 @@ functional_tests do
     end
     instance = klass.new
     instance.valid?
-    assert_equal "can't be empty", instance.errors.on(:name)
+    assert_equal Validatable::Errors::MessageCodeFor[:required], instance.errors.on(:name)
     assert_equal "invalid message", instance.errors.on(:address)
   end
 
-  expect "can't be empty" do
+  expect Validatable::Errors::MessageCodeFor[:required] do
     child_class = Class.new do
       include Validatable
       attr_accessor :name, :address
@@ -221,7 +221,7 @@ functional_tests do
     instance.errors.on(:namen)
   end
 
-  expect "can't be empty" do
+  expect Validatable::Errors::MessageCodeFor[:required] do
     child_class = Class.new do
       include Validatable
       attr_accessor :name, :address
@@ -282,7 +282,7 @@ functional_tests do
     assert_equal nil, instance.errors.on(:name)
   end
 
-  expect "can't be empty twice changed message" do
+  expect "#{Validatable::Errors::MessageCodeFor[:required]} twice changed message" do
     klass = Class.new do
       include Validatable
       validates_presence_of :name
@@ -413,7 +413,7 @@ functional_tests do
     klass.validations.first.key
   end
   
-  expect "can't be empty" do
+  expect Validatable::Errors::MessageCodeFor[:required] do
     klass = Class.new do
       include Validatable
       validates_presence_of :name, :address

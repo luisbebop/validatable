@@ -8,7 +8,7 @@ module Validatable
     end
     
     def message(instance)
-      super || "must be accepted"
+      super || Validatable::Errors::MessageCodeFor[:accept]
     end
   end
 end

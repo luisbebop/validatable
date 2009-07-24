@@ -7,7 +7,7 @@ module Validatable
     end
     
     def message(instance)
-      super || "is invalid"
+      super || Validatable::Errors::MessageCodeFor[:logic]
     end
   end
 end
