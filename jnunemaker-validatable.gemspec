@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
-    "README.rdoc",
+     "README.rdoc",
      "Rakefile",
      "VERSION.yml",
      "lib/child_validation.rb",

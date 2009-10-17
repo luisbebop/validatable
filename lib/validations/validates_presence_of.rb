@@ -10,7 +10,7 @@ module Validatable
     end
     
     def message(instance)
-      super || "can't be empty"
+      super || Validatable::Errors::MessageCodeFor[:required]
     end
   end
 end

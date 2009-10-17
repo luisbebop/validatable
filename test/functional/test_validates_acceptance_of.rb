@@ -10,7 +10,7 @@ module Functional
       end
       instance = klass.new
       instance.valid?
-      assert_equal "must be accepted", instance.errors.on(:name)
+      assert_equal Validatable::Errors::MessageCodeFor[:accept], instance.errors.on(:name)
     end
   end
 end

@@ -10,7 +10,7 @@ module Validatable
     end
     
     def message(instance)
-      super || "is invalid"
+      super || Validatable::Errors::MessageCodeFor[:format]
     end
   end
 end

@@ -12,7 +12,7 @@ module Functional
       instance.name = "foo"
       instance.name_confirmation = "bar"
       instance.valid?
-      assert_equal "doesn't match confirmation", instance.errors.on(:name)
+      assert_equal Validatable::Errors::MessageCodeFor[:confirmation], instance.errors.on(:name)
     end
 
     test "given matching attributes, when validated, then no error is in the objects error collection" do
@@ -49,7 +49,7 @@ module Functional
       instance.name = "foo"
       instance.name_confirmation = "FOO"
       assert_equal false, instance.valid?
-      assert_equal "doesn't match confirmation", instance.errors.on(:name)
+      assert_equal Validatable::Errors::MessageCodeFor[:confirmation], instance.errors.on(:name)
       
     end
   end
